@@ -1,31 +1,57 @@
 import './App.css';
+import { useState } from 'react';
 
-// importacion manual de archivo navBar
+
+// navBar
 import NavBar from "./components/navbar/NavBar";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-// importacion Class Components
+// Class Components
 import { ClassComponents } from "./components/class-components/ClassComponents";
-
-// importacion functional Components
+// functional Components
 import FunctionalComponents from "./components/function-components/FunctionalComponents";
-
-// importacion Componente contenedor
+// Componente contenedor
 import ItemListContainer from './components/item-list-container/ItemListContainer';
-
-// importacion Componente children
+// Componente children
 import ComponentChildren from "./components/component-children/ComponentChildren";
+// ItemCounter
+import Counter from './components/itemCount/counter';
+
 
 
 function App() {
+
+  // Declaro las constantes y creo la funcion state hook para el ejemplo de Ciclo de vida en Funtional component
+  const [showFunctionComponent, setShowFunctionComponent] = useState(true);
+
   return (
     <div className="App">
       <NavBar />
+      <hr />
+      <hr />
+
+      <h1>Cuadro Lirios</h1>
+      <Counter stock={20} />
+
+      <hr />
+      <hr />
+
       <ClassComponents name="Rodolfo" Edad="18"/>
+
       <hr />
-      <FunctionalComponents name="Mateo" Edad="24"/>
       <hr />
+
+      {showFunctionComponent && <FunctionalComponents name="Mateo" Edad="24"/>}
+      <button onClick = { () => setShowFunctionComponent(!showFunctionComponent)}>
+        Eliminar componente funcional
+      </button>
+
+      <hr />
+      <hr />
+
       <ItemListContainer />
+
+      <br />
+      <br />
 
       <ComponentChildren otherProp="El titulo">
         <h1>Hola, soy un componente hijo</h1>
@@ -36,11 +62,10 @@ function App() {
         obcaecati provident amet harum reiciendis quia?
         </p>
       </ComponentChildren>
+
       <br />
       <br />
-      <br />
-      <br />
-      <br />
+      
     </div>
   );
 }

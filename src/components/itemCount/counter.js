@@ -2,18 +2,21 @@
 // * useState = // primero se declara la variable y despues la funcion para el valor de la variable
 
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 
-const Counter = ({stock}) => {
+const Counter = ({stock, setStockSelected}) => {
 
     // Se declara la constante para la funcion del contador
     const [counter, setCounter] = useState(0);
 
-    // Se declara la constante para la funcion de cuantos clicks se realizaron 
-    // *
-    const [currentTimes, setCurrentTimes] = useState(0);
-
+    //useEffect = Ciclo de vida de un component de funcion
+        // acepta la funcion setStockSelected de items.js
+        // se entre [] una dependencia para llamar a una promesa - COUNTER es la dependencia, el valor a contar
+        useEffect(() => {
+            setStockSelected(counter);
+        }, [counter]);
+    
 
 
     // Funcion para restar clicks
@@ -29,26 +32,14 @@ const Counter = ({stock}) => {
         setCounter(counter + 1);
     };
 
-    // Funcion para cantidad de clicks
-    const clickMe = () => {
-        setCurrentTimes(counter);
-    };
-
-
 
     return (
         <>
         <div>
-
             <button onClick={minusCounter}>-</button>
             <span>{counter}</span>
             <button onClick={plusCounter}>+</button>
-            
         </div> 
-
-        <button onClick={clickMe}>Agregar a carrito</button>
-
-        <h3>Se agregaron {currentTimes} al carrito!</h3>
         </>  
     )
 };

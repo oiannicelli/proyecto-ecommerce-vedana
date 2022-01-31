@@ -1,19 +1,29 @@
 // COMPONENTE DE PRESENTACION - solo muestra la informacion
 
-const Item = ( { name, price, id, createdBy, setSelectedItem }) => {
+// ItemCounter
+import { useState } from "react";
+import Counter from "../itemCount/counter";
 
-    // creo una funcion que llame por referencia a la funcion "setSelectedItem" para selecionar el producto y mostrar la informacion:
-    // creo un objeto "{name, price, id}"
-    const selectItem = () => setSelectedItem({ name, price, id, createdBy });
+
+const Item = ( { id, name, description, stock, setSelectedItem }) => {
+
+  // Creo una funcion para modificar el numero de stock selecionado:
+  const [stockSelected, setStockSelected] = useState(0);
+
+  // creo una funcion que llame por referencia al parametro "setSelectedItem" para selecionar el producto y mostrar la informacion + creo un objeto "{id, name, description, stock: stockSelected }"
+  const selectItem = () => setSelectedItem({ id, name, description, stock: stockSelected });
 
   return (
-    <div>
-      <h2>Nombre producto: {name}</h2>
-      <h2>Precio producto: {price}</h2>
-      <h2>Creado por: {createdBy}</h2>
-      <button onClick={ selectItem }>Seleccionar producto</button>
+    <>
+      <div>
+        <h2>Nombre producto: {name}</h2>
+        <h2>Descripción del producto: {description}</h2>
+        <h1>Cuadro Lirios</h1>
+        <Counter stock={stock} setStockSelected={setStockSelected} />
+        <button onClick={ selectItem }>Seleccionar producto</button>
+      </div>
       <hr />
-    </div>
+    </>
   );
 };
 

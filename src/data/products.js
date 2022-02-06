@@ -1,10 +1,19 @@
-// Mock (objeto) estático de datos que devuelve un conjunto de items
-// El objeto PROMISES consume estos datos para representarlos y continuar con el ciclo de vida de una funcion
+export const products = [
+    {
+        id: '1',
+        name: 'Cuadro Lirios',
+        image: 'assets/images/lirios.jpg',
+        description: 'Medida 20x20 cm',
+        stock: 20,
+    },
+];
 
+/*
 export const products = [ 
     {
         id: '1',
         name: 'Cuadro Lirios',
+        Image: './public/assets/images/products/lirios.jpg',
         description: 'Medida 20x20 cm',
         stock: 20,
     },
@@ -26,4 +35,4 @@ export const products = [
         description: 'Largo de 1.50mts',
         stock: 3,
     },
-];
+];*/

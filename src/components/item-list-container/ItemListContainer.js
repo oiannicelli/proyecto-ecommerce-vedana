@@ -1,68 +1,71 @@
-// 
-
 import { useEffect, useState } from "react";
-import { productsAPI } from '../../helpers/promises';
 import Item from '../item/item';
 
 
-
 const ItemListContainer = () => {
+// 2° Seteo la informacion que llego de la API al componente:
+const [selectedItem, setSelectedItem] = useState (null);
+const [characters, setCharacters] = useState([]);
+const [loadingCharacters, setLoadingCharacters] = useState(true);
 
-// 1° creo una primera funcion que selecciona productos:
-    // parametro "selectedItem" es la propiedad que vamos a mostrar.
-    // parametro "setSelectedItem" es la función que vamos a mostrar.
-    // useState: me permite controlar el estado del contenedor, de la propiedad y la funcion.
-    const [selectItem, setSelectedItem] = useState (null);
-    const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
+useEffect(() => {
+  getRickAndMortyCharacter();
+}, []);
 
+// 1° creo la funcion para consumir la API
+  const getRickAndMortyCharacter = async () => {
 
-// 3° useEFfect = Ciclo de vida de un component de funcion
-    // acepta la funcion getProducts de promises.js
-    // se entre [] una dependencia para llamar a una promesa 
-    useEffect(() => {
-        getProducts();
-    }, []);
-
-
-// 2° creo el functional component para que traiga el resultado
-  const getProducts = async () => {
     try {
-      const result = await productsAPI;
-      setProducts(result);
+    // await: funcion para esperar la informacion (la Promise)
+    // fecth: retorna una promise
+    const response = await fetch ('https://rickandmortyapi.com/api/character');
+
+    // para llamar a la promise y ver la informacion que retorna utilizo .JSON
+    // ...para transformarlo en JS:
+    const data = await response.json();
+
+    setCharacters(data.results);
     } catch (error) {
-      console.log({ error} );
+      console.log(error);
     } finally {
-        setLoading(false);
-        console.log("Finalización del consumo de productsAPI");
+      setLoadingCharacters (false);
     }
   };
 
-
-  if (loading) {
-    return <div>Cargando...</div>;
+// 3° Si "loadingCharacter" es TRUE:
+  if (loadingCharacters) {
+    return <h1>Cargando personajes...</h1>;
   }
-
 
   return (
     <div>
-        <h1>Lista de productos</h1>
+      <h1>Lista de productos</h1>
         <h3>Producto seleccionado</h3>
-        <p>{selectItem && selectItem.name}</p>
-        <p>{selectItem && selectItem.description}</p>
-        <p>ID: {selectItem && selectItem.id}</p>
-        <p>Stock seleccioando: {selectItem && selectItem.stock}</p>
+
+        {selectedItem && selectedItem.image && (
+          <img src={selectedItem.image} alt="selectedItemImage" />
+        )}
+
+        <p>{selectedItem && selectedItem.name}</p>
+        <p>{selectedItem && selectedItem.description}</p>
+        <p>ID: {selectedItem && selectedItem.id}</p>
+        <p>Stock seleccioando: {selectedItem && selectedItem.stock}</p>
         <hr />
-        {/* products.map( ({id, name, description, stock}) => ( */}
-        {products.map((product) => (
-            <Item key={product.id} {...product} setSelectedItem={setSelectedItem} />
+
+
+      {/* utlizo MAP para poder iterar sobre todos los personajes:*/}
+        {characters.map(({id, name, image }) => (
+          <Item
+          key={id}
+          id={id}
+          name={name}
+          description={`Character ${name}`}
+          image={image}
+          setSelectedItem={setSelectedItem}
+          />
         ))}
     </div>
   );
 };
 
 export default ItemListContainer;
-
-// las {} nos permiten hacer un corte y agregar JS puro
-// map: metodo que hace iterar a cada uno de los objetos del array
-// el sprit "...item" se utiliza solo cuando se que toda la informacion completa se puede enviar

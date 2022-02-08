@@ -2,7 +2,7 @@ export const products = [
     {
         id: '1',
         name: 'Cuadro Lirios',
-        image: 'assets/images/lirios.jpg',
+        image: './assets/images/lirios.jpg',
         description: 'Medida 20x20 cm',
         stock: 20,
     },

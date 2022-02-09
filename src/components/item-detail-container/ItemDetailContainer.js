@@ -1,42 +1,32 @@
-import { useEffect, useState } from "react";
-import { productAPI } from '../../helpers/promises';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import useProducts from "../hooks/useProducts";
 
+const ItemDetailContainer = () => {
+  const { products } = useProducts();
+  const { id } = useParams();
 
-const ItemListContainer = () => {
-    const [product, setProduct] = useState([]);
-    const [loading, setLoading] = useState(true);
+  const [selectedItem, setSelectedItem] = useState(null);
 
-useEffect(() => {
-    getSelectedProduct();
-}, []);
-
-
-  const getSelectedProduct = async () => {
-    try {
-        const result = await productAPI;
-        setProduct(result);
-    } catch (error) {
-      console.log(error);
-    } finally {
-        setLoading (false);
+  useEffect(() => {
+    if (products.length > 0) {
+      const selectedProduct = products.find((product) => product.id === id);
+      setSelectedItem(selectedProduct);
     }
-  };
-
-  if (loading) {
-    return <h1>Cargando producto...</h1>;
-  }
+  }, [products]);
 
   return (
     <div>
-      <h1>Producto selecionado</h1>
-        <p>{product[0].name}</p>
-        <p>ID: {product[0].id}</p>
-        <p>Stock: {product[0].stock}</p>
-        <img src={product[0].image} alt="productItemImage" />
-        <p>Descripción del producto: {product[0].description}</p>
-        <hr />
+      <h3>Producto seleccionado</h3>
+      {selectedItem && selectedItem.image && (
+        <img src={selectedItem.image} alt="selectedItemImage" />
+      )}
+      <p>{selectedItem && selectedItem.name}</p>
+      <p>{selectedItem && selectedItem.description}</p>
+      <p>ID: {selectedItem && selectedItem.id}</p>
+      <p>STOCK seleccionado: {selectedItem && selectedItem.stock}</p>
     </div>
   );
 };
 
-export default ItemListContainer;
+export default ItemDetailContainer;

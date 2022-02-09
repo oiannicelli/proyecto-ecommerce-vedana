@@ -1,40 +1,62 @@
-import { Container, Nav, Navbar as BTNavbar } from "react-bootstrap";
+import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
-import './NavBar.css';
-
-
 import CartIcon from "../icon/CartIcon";
+import "./NavBar.css";
 
 const NavBar = () => {
-    return (
-        <BTNavbar bg="light" variant="light">
-            <Container>
-                
-                <BTNavbar.Brand href="#home">
-                    <Link to='/'>
-                        VEDANA
-                    </Link>
-                </BTNavbar.Brand>
-                <Nav className="me-auto">
-                    <Nav.Link href="#sobreMi">
-                        <Link to='/'>
-                            Sobre mí
-                        </Link>
-                    </Nav.Link>
-                    <Nav.Link href="#faqs">FAQ's</Nav.Link>
-                    <Nav.Link href="#tienda">
-                        <NavLink to='/category' className={({isActive}) => isActive ? 'activeClass' : undefined }>
-                            Tienda
-                        </NavLink>
-                    </Nav.Link>
-                    <Nav.Link href="#contacto">Contacto</Nav.Link>
-                </Nav>
+  const activeStyle = {
+    color: "red",
+  };
 
-                <CartIcon /> 
+  return (
+    <Navbar bg="light" expand="lg">
+      <Container>
+        <Navbar.Brand>
+          <Link to="/">VEDANA</Link>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
 
-            </Container>
-        </BTNavbar>
-    )
-}
+            <Nav.Link>
+              <NavLink
+                to="/item"
+                style={({ isActive }) => (isActive ? activeStyle : undefined)}
+              >
+                Item
+              </NavLink>
+            </Nav.Link>
+            
+            <NavDropdown title="Categorias" id="basic-nav-dropdown">
+              <NavDropdown.Item>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "activeClass" : undefined
+                  }
+                  to="category/cuadros"
+                >
+                  Cuadros
+                </NavLink>
+              </NavDropdown.Item>
 
-export default NavBar
+              <NavDropdown.Item>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "activeClass" : undefined
+                  }
+                  to="category/guirnaldas"
+                >
+                  Guirnaldas
+                </NavLink>
+              </NavDropdown.Item>
+              
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+        <CartIcon />
+      </Container>
+    </Navbar>
+  );
+};
+
+export default NavBar;

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 
-const ItemCounter = ({ stock, setSotckSelected }) => {
+const ItemCounter = ({ stock,exportCounter }) => {
   const [counter, setCounter] = useState(0);
+  const [stockSelected, setStockSelected] = useState(0);
 
   useEffect(() => {
-    setSotckSelected(counter);
+    setStockSelected(counter);
   }, [counter]);
 
   const minusCounter = () => {
@@ -23,6 +24,9 @@ const ItemCounter = ({ stock, setSotckSelected }) => {
         <button onClick={minusCounter}>-</button>
         <span>{counter}</span>
         <button onClick={plusCounter}>+</button>
+        <br/>
+        <br/>
+        <button onClick={() => exportCounter(counter)}>Seleccionar cantidad</button>
       </div>
     </>
   );

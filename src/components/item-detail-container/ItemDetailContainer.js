@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useProducts from "../hooks/useProducts";
+import ItemCounter from "../itemCount/counter";
 
 const ItemDetailContainer = () => {
   const { products } = useProducts();
   const { id } = useParams();
 
   const [selectedItem, setSelectedItem] = useState(null);
+  const [stockSelected, setStockSelected] = useState(0);
+
+  const exportCounter = (stock) => {
+    setStockSelected(stock);
+  }
 
   useEffect(() => {
     if (products.length > 0) {
@@ -24,7 +30,8 @@ const ItemDetailContainer = () => {
       <p>{selectedItem && selectedItem.name}</p>
       <p>{selectedItem && selectedItem.description}</p>
       <p>ID: {selectedItem && selectedItem.id}</p>
-      <p>STOCK seleccionado: {selectedItem && selectedItem.stock}</p>
+      <p>STOCK seleccionado: {stockSelected}</p>
+      <ItemCounter exportCounter={exportCounter} />
     </div>
   );
 };

@@ -1,4 +1,5 @@
-# VEDANA es un sitio web e-commerce de venta de objetos en papercut donde podrás:
+# VEDANA
+Un sitio web e-commerce de venta de objetos en papercut donde podrás:
 
 Ver y filtrar productos por categoría
 Seleccionar un item para verlo en más detalle

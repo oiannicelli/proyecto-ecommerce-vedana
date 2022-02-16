@@ -6,8 +6,18 @@ const Cart = () => {
 
   return (
     <>
-      <h1>Cart</h1>
-      <h1>{items}</h1>
+      <div>
+        <ul>
+          {items.map(({ item }) => (
+            <li>
+              <h3>Nombre del producto: {item.name}</h3>
+              <h3>Categoria: {item.category}</h3>
+              <img src={item.image} className="img-size-productos" alt="image of product" />
+            </li>
+          )
+          )}
+        </ul>
+    </div>
     </>
   )
 };

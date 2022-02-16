@@ -12,10 +12,12 @@ export const CartProvider = ({ children }) => {
         setItems([...items, currentItem]);
     };
     
-    return <CartContext.Provider value={{
-        items,
-        addItem,
-    }}>
+    return (
+        <CartContext.Provider value={{
+            items,
+            addItem,
+        }}>
         { children }
-    </CartContext.Provider>;
+        </CartContext.Provider>
+    );
 };

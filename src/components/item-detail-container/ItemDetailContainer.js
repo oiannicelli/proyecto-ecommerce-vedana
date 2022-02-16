@@ -4,6 +4,7 @@ import { CartContext } from "../../context/cartContext";
 import useProducts from "../hooks/useProducts";
 import ItemCounter from "../itemCount/counter";
 
+
 const ItemDetailContainer = () => {
   const { products } = useProducts();
   const { id } = useParams();
@@ -35,7 +36,7 @@ const ItemDetailContainer = () => {
     <div>
       <h3>Producto seleccionado</h3>
       {selectedItem && selectedItem.image && (
-        <img src={selectedItem.image} alt="selectedItemImage" />
+        <img src={selectedItem.image} className="img-size-productos" alt="selectedItemImage" />
       )}
       <p>{selectedItem && selectedItem.name}</p>
       <p>{selectedItem && selectedItem.description}</p>

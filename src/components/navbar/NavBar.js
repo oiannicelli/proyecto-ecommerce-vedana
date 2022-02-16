@@ -18,14 +18,6 @@ const NavBar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
 
-            <Nav.Link>
-              <NavLink
-                className={({ isActive }) => isActive ? "activeClass" : undefined}
-                to="/item">
-                Item
-              </NavLink>
-            </Nav.Link>
-
             <NavDropdown title="Categorias" id="basic-nav-dropdown">
               <NavDropdown.Item>
                 <NavLink
@@ -42,10 +34,27 @@ const NavBar = () => {
                   Guirnaldas
                 </NavLink>
               </NavDropdown.Item>
+
+              <NavDropdown.Item>
+                <NavLink
+                  className={({ isActive }) => isActive ? "activeClass" : undefined}
+                  to="category/todos">
+                  Todos
+                </NavLink>
+              </NavDropdown.Item>
               
             </NavDropdown>
+            <Nav.Link>
+            <NavLink
+              className={({ isActive }) => isActive ? "activeClass" : undefined}
+              to="/item">
+              Item
+            </NavLink>
+        </Nav.Link>
           </Nav>
         </Navbar.Collapse>
+
+        
        
         <Link to="/cart">
           <CartIcon />

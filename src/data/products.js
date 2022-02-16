@@ -37,7 +37,7 @@ export const products = [
         image: "/assets/geranios.jpg",
         description: "Largo de 2mts",
         stock: 5,
-        category: "guirnalda",
+        category: "guirnaldas",
     },
     {
         id: "5",
@@ -45,6 +45,6 @@ export const products = [
         image: "/assets/rebutias.jpg",
         description: "Largo de 1.50mts",
         stock: 3,
-        category: "guirnalda",
+        category: "guirnaldas",
     },
 ];

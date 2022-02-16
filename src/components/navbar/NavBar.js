@@ -20,32 +20,25 @@ const NavBar = () => {
 
             <Nav.Link>
               <NavLink
-                to="/item"
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}
-              >
+                className={({ isActive }) => isActive ? "activeClass" : undefined}
+                to="/item">
                 Item
               </NavLink>
             </Nav.Link>
-            
+
             <NavDropdown title="Categorias" id="basic-nav-dropdown">
               <NavDropdown.Item>
                 <NavLink
-                  className={({ isActive }) =>
-                    isActive ? "activeClass" : undefined
-                  }
-                  to="category/cuadros"
-                >
+                  className={({ isActive }) => isActive ? "activeClass" : undefined}
+                  to="category/cuadros">
                   Cuadros
                 </NavLink>
               </NavDropdown.Item>
 
               <NavDropdown.Item>
                 <NavLink
-                  className={({ isActive }) =>
-                    isActive ? "activeClass" : undefined
-                  }
-                  to="category/guirnaldas"
-                >
+                  className={({ isActive }) => isActive ? "activeClass" : undefined}
+                  to="category/guirnaldas">
                   Guirnaldas
                 </NavLink>
               </NavDropdown.Item>

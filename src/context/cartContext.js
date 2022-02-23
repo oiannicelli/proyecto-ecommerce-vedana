@@ -33,10 +33,10 @@ export const CartProvider = ({ children }) => {
         return parseInt(total);
     };
 
-    const formatoMoneda = (valor) =>
-        valor.toLocaleString("en-US", {
+    const formatoMoneda = (valor) => 
+        valor.toLocaleString("en-A$R", {
             style: "currency",
-            currency: "USD",
+            currency: "$",
             minimumFractionDigits: 2,
         });
 

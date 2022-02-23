@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { CartContext } from "../../context/cartContext";
+import { CartContext } from "../../context/CartContext";
 import useProducts from "../hooks/useProducts";
 import ItemCounter from "../itemCount/counter";
 
@@ -8,7 +8,7 @@ import ItemCounter from "../itemCount/counter";
 const ItemDetailContainer = () => {
   const { products } = useProducts();
   const { id } = useParams();
-  const { addItem } = useContext(CartContext);
+  const { addToCart } = useContext(CartContext);
 
   const [selectedItem, setSelectedItem] = useState(null);
   const [stockSelected, setStockSelected] = useState(0);
@@ -26,7 +26,7 @@ const ItemDetailContainer = () => {
   }, [products]);
 
   const handleAddToCart = () => {
-    addItem({
+    addToCart({
       item: selectedItem,
       quantity,
     });

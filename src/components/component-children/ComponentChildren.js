@@ -6,7 +6,7 @@ const ComponentChildren = ( {children, otherProp} ) => {
     <h1>{otherProp}</h1>
   {children}
   </>
-  );
+  )
 };
 
 export default ComponentChildren;

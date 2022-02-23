@@ -1,19 +1,20 @@
-// COMPONENTE DE PRESENTACION - solo muestra la informacion
+import { Link } from "react-router-dom";
+import "./item.css";
 
-const Item = ( { name, price, id, createdBy, setSelectedItem }) => {
+const Item = ({ id, name, description, image }) => {
 
-    // creo una funcion que llame por referencia a la funcion "setSelectedItem" para selecionar el producto y mostrar la informacion:
-    // creo un objeto "{name, price, id}"
-    const selectItem = () => setSelectedItem({ name, price, id, createdBy });
 
   return (
-    <div>
-      <h2>Nombre producto: {name}</h2>
-      <h2>Precio producto: {price}</h2>
-      <h2>Creado por: {createdBy}</h2>
-      <button onClick={ selectItem }>Seleccionar producto</button>
+    <>
+      <div>
+        <h3>Nombre del producto: {name}</h3>
+        <h3>Descripción del producto: {description}</h3>
+        <img src={image} className="img-size-productos" alt="image of product" />
+        <br />
+        <Link to={`/item/${id}`}>Seleccionar producto</Link>
+      </div>
       <hr />
-    </div>
+    </>
   );
 };
 

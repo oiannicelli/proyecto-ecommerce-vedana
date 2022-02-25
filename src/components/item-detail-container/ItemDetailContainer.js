@@ -1,50 +1,35 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import ItemDetail from "../item-detail/ItemDetail";
 import { useParams } from "react-router-dom";
-import { CartContext } from "../../context/CartContext";
-import useProducts from "../hooks/useProducts";
-import ItemCounter from "../itemCount/counter";
+import { getFirestore } from "firebase/firestore";
 
+const getItems = (id) => {
+  const db = getFirestore();
+  const itemCollection = db.collection("items");
+  const oneItem = itemCollection.doc(id);
+  return oneItem.get();
+};
 
 const ItemDetailContainer = () => {
-  const { products } = useProducts();
-  const { id } = useParams();
-  const { addToCart } = useContext(CartContext);
-
-  const [selectedItem, setSelectedItem] = useState(null);
-  const [stockSelected, setStockSelected] = useState(0);
-  const [quantity, setQuantity] = useState(0);
-
-  const exportCounter = (stock) => {
-    setStockSelected(stock);
-  }
+  const [item, setItem] = useState({});
+  const [loading, setLoading] = useState(true);
+  const { idF } = useParams();
 
   useEffect(() => {
-    if (products.length > 0) {
-      const selectedProduct = products.find((product) => product.id === id);
-      setSelectedItem(selectedProduct);
-    }
-  }, [products]);
-
-  const handleAddToCart = () => {
-    addToCart({
-      item: selectedItem,
-      quantity,
-    });
-  };
+      getItems(idF)
+          .then((doc) => {
+              if (doc.exists) {
+                  setItem({ id: doc.id, ...doc.data() });
+              }
+          })
+          .catch((err) => console.error(err))
+          .finally(() => setLoading(false));
+  }, [idF]);
 
   return (
-    <div>
-      <h3>Producto seleccionado</h3>
-      {selectedItem && selectedItem.image && (
-        <img src={selectedItem.image} className="img-size-productos" alt="selectedItemImage" />
-      )}
-      <p>{selectedItem && selectedItem.name}</p>
-      <p>{selectedItem && selectedItem.description}</p>
-      <p>ID: {selectedItem && selectedItem.id}</p>
-      <p>STOCK seleccionado: {stockSelected}</p>
-      <ItemCounter exportCounter={exportCounter} setStockSelected={setQuantity} />
-      <button onClick={handleAddToCart}>Agregar al carrito</button>
-    </div>
+      <div className=" container row text-center">
+          {loading ? <h4>Cargando</h4> : <ItemDetail item={item} />}
+      </div>
   );
 };
 

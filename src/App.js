@@ -1,15 +1,16 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Routes from './routes/Routes';
-import { CartProvider } from './context/CartContext';
+import { CartContextProvider } from './context/cartContext';
+
 
 function App() {
 
   return (
     <div className="App">
-      <CartProvider>
+      <CartContextProvider>
         <Routes />
-      </CartProvider>
+      </CartContextProvider>
     </div>
   )
 };

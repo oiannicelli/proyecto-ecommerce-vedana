@@ -1,0 +1,42 @@
+h1 {
+    font: 700 3rem $font;
+    color: $clarito;
+    margin-top: 2em;
+    text-shadow: 3px 3px 2px $lila;
+    } 
+
+h2 {
+    font: 2rem $font;
+    color: $clarito;
+    margin-top: 1em;
+}  
+
+.cart-title {
+    font: 500 2.5rem $font;
+    color: $clarito;
+    margin-top: 2em;
+    text-shadow: 3px 3px 2px $lila;
+}
+
+h3 {
+    font: 2rem $font;
+    color: $clarito;
+    margin-top: 1em; 
+}
+
+li {
+    font: 1.5rem $font;
+    color: $clarito;
+    margin-top: 1em;
+}
+
+.footer {
+    background-color: $lila;
+    display: flex;
+    flex-direction: column;
+    font: 700 $font;
+    color: $clarito;
+    padding: 10px;
+    box-shadow: 0 0 10px 0 $clarito;
+    margin-top: 50px;
+}

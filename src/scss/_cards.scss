@@ -1,0 +1,104 @@
+.products-layout {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 20px 50px;
+}
+
+.card {
+    display: flex;
+    background-color: $lila;
+    flex-direction: column;
+    width: 20%;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 20px;
+    box-shadow: 3px 5px 5px $clarito;
+    &:hover{
+        transform: scale(1.1);
+    }
+    .card-img {
+        border-radius: 5px;
+    }
+    .card-body {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        button {
+            @include btn;
+            padding: 10px;
+            font-size: 1.5rem;
+            box-shadow: 1px 1px 1px $clarito;
+            }
+        .card-body-layout {
+            display: flex;
+            flex-direction: column;
+            h3 {
+                color: $clarito;
+                text-shadow: 1px 1px 1px $violeta-oscuro;
+            }
+            p {
+                color: $clarito;
+                font-size: 1.5rem;
+                text-shadow: 1px 1px 1px $violeta-oscuro
+            }
+        }
+    }
+}
+
+.details {
+    margin: 50px auto;
+    width: 70%;
+}
+
+
+.detail-layout {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: $lila;
+    border-radius: 20px;
+    box-shadow: 5px 10px 10px $clarito;
+    padding: 10px;
+    .carousel-size {
+        width: 600px;
+        height: 600px;
+    }
+    .detail-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        h2 {
+            font: 700 3rem $font;
+            color: $violeta-oscuro;
+            text-shadow: 1px 1px 1px $clarito;
+        }
+        h3 {
+            font: 700 2rem $font;
+            color: $clarito;
+        }
+        p {
+            font: 500 1.5rem $font;
+            color: $clarito;
+        }
+        button {
+            background-color: $violeta-oscuro;
+            color: $clarito;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 15px;
+            margin: 2px;
+            font-size: 1.5rem;
+            &:hover {
+                opacity: 0.5;
+            }
+        }
+        .detail-btns {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }    
+    }
+}

@@ -1,26 +1,17 @@
-.bg-light {
-    background-image: url(../assets/img/bcat.png);
-    }
-
 nav {
-    box-shadow: 0 0 30px 0 $clarito;
+    background-color: #fff;
+    padding: 30px;
     a {
         text-decoration: none;
     }
-    }    
+}    
 
 .navlink {
-    background: rgb(204, 204, 204); 
-    background: rgba(204, 204, 204, 0.5);
-    color: $violeta-oscuro;
-    border-radius: 15px;
-    padding: 10px;
-    margin: auto 10px;
-    text-shadow: 3px 3px 2px $lila;
-    box-shadow: 2px 2px 5px 0 $lila;
-    font: 700 1.8rem $font;
+    color: black;
+    margin: 20px;
+    font: 400 16px $font;
     &:hover {
-        color: $lila;
+        color: rgb(206, 157, 94);
         }
     }
 
@@ -29,15 +20,18 @@ nav {
 }
 
 .active {
-    font-weight: 900;
+    font-weight: 600;
+    color: rgb(206, 157, 94);
 }
 
 .cart-icon {
-    filter: drop-shadow(0 0 5px $violeta-oscuro);
-    color: $clarito;
-    font-size: 30px;
+    color: black;
+    width: 3%;
+    height: auto;
+    margin-left: 200px;
+    font-size: 20px;
     &:hover {
-        opacity: 0.8;
+        color: rgb(206, 157, 94);
     }
 }
 
@@ -47,18 +41,15 @@ nav {
     margin: 50px auto;
 }
 
-.cart_count {
+.cart_number {
     position: absolute;
-    top: 30px;
-    right: 105px;
     color: #fff;
-    background: #ff3e6c;
-    font-weight: 500;
-    border-radius: 50%;
+    background: rgb(206, 157, 94);
+    font-weight: 700;    
     font-size: 11px;
     width: 20px;
     height: 20px;
+    border-radius: 50%;
     text-align: center;
     line-height: 20px;
-    }
-
+}

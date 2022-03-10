@@ -1,9 +1,9 @@
-import { FaCartPlus } from "react-icons/fa";
+import { FaShoppingBag } from "react-icons/fa";
 
 const AddToCart = () => {
     return (
-        <FaCartPlus
-        size={20}
+        <FaShoppingBag
+        size={15}
         color="white"
         />
     );

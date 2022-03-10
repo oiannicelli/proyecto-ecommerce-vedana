@@ -8,19 +8,10 @@
 
 .card {
     display: flex;
-    background-color: $lila;
     flex-direction: column;
     width: 20%;
-    border-radius: 20px;
     padding: 10px;
-    margin: 20px;
-    box-shadow: 3px 5px 5px $clarito;
-    &:hover{
-        transform: scale(1.1);
-    }
-    .card-img {
-        border-radius: 5px;
-    }
+    margin: 20px;    
     .card-body {
         display: flex;
         flex-direction: row;
@@ -30,19 +21,16 @@
             @include btn;
             padding: 10px;
             font-size: 1.5rem;
-            box-shadow: 1px 1px 1px $clarito;
             }
         .card-body-layout {
             display: flex;
             flex-direction: column;
             h3 {
-                color: $clarito;
-                text-shadow: 1px 1px 1px $violeta-oscuro;
+                color: rgb(197, 180, 144);
             }
             p {
-                color: $clarito;
+                color: rgb(197, 180, 144);
                 font-size: 1.5rem;
-                text-shadow: 1px 1px 1px $violeta-oscuro
             }
         }
     }
@@ -50,55 +38,47 @@
 
 .details {
     margin: 50px auto;
-    width: 70%;
+    width: 60%;
+    height: auto;
+    text-align: left;
 }
-
 
 .detail-layout {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    background-color: $lila;
-    border-radius: 20px;
-    box-shadow: 5px 10px 10px $clarito;
-    padding: 10px;
-    .carousel-size {
-        width: 600px;
-        height: 600px;
-    }
     .detail-info {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
+        margin: 10px;
         h2 {
-            font: 700 3rem $font;
-            color: $violeta-oscuro;
-            text-shadow: 1px 1px 1px $clarito;
+            font: 400 2.5rem $font;
+            color: black;
         }
         h3 {
             font: 700 2rem $font;
-            color: $clarito;
+            color: rgb(206, 157, 94);
         }
         p {
-            font: 500 1.5rem $font;
-            color: $clarito;
+            font: 400 1.5rem $font;
+            color: black;
         }
         button {
-            background-color: $violeta-oscuro;
-            color: $clarito;
+            background-color: black;
+            color: white;
             border: none;
-            border-radius: 10px;
-            padding: 10px 15px;
-            margin: 2px;
-            font-size: 1.5rem;
+            padding: 5px 20px;
+            font-size: 2rem;
             &:hover {
-                opacity: 0.5;
+                background-color: rgb(206, 157, 94);
             }
         }
         .detail-btns {
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
+            justify-content: space-evenly;
+            margin: 200px auto;
+            .btn-detail {
+                font: 400 1.7rem $font;
+            }
         }    
     }
 }

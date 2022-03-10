@@ -6,13 +6,17 @@ import ItemDetailContainer from '../components/item-detail-container/ItemDetailC
 import NotFound from '../not-found/NotFound';
 import Cart from '../components/cart/Cart';
 import Form from '../components/form/Form';
-
+// import index from '../assets/img/index.jpg';
 
 const Routes = () => {
     return (
         <BrowserRouter>
             <NavBar />
-            <h1>Black Cat´s Treasures</h1>
+            {/* <img
+                src={index}
+                width="auto"
+                height="743"
+            /> */}
             <Switch>
                 <Route path="/" element={<ItemListContainer />} />
                 <Route path="/category/:categoryId" element={<ItemListContainer />} />

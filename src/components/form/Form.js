@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { addDoc, collection, doc, getFirestore, writeBatch } from "firebase/firestore";
 import { CartContext } from "../../context/CartContext";
+import form from "../../assets/img/form.jpg";
 
 const MyForm = () => {
     const [name, setName] = useState("");
@@ -39,11 +40,17 @@ const MyForm = () => {
 
 
     return (
-        <div>
+        <div className="title">
+            <div >
+                <img
+                    src={form}
+                    width="800"
+                    height="auto"
+                />
+            </div>
             {show ? (
                 <div>
-                    <h2>Completa tus datos para finalizar la compra</h2>
-                    <h2>Total : $ { totalSum } </h2>
+                    <h2>Finaliza tu compra completando tus datos</h2>
                     <form className="my-form">
                         <label htmlFor="name">Nombre:</label>
                         <input type="text" className="form-control" id="name" value={name} onChange={(e) => setName(e.target.value)} />
@@ -56,10 +63,9 @@ const MyForm = () => {
                         <button onClick={sendOrder} type="submit">Enviar</button> 
                     </form>
                 </div> ) : ( null )}
-            {orderId ? ( <h2> ¡Tu compra se realizó con éxito! El id para seguimiento es: { orderId } </h2> ) : ( null )}
+            {orderId ? ( <h2> ¡Pedido realizado! <p>Pronto recibiras un mail con el detalle</p> </h2>) : ( null )}
         </div>
     );
 };
 
 export default MyForm;
-

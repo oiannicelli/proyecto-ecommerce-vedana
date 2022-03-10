@@ -1,3 +1,19 @@
+.title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    h2 {
+        font: 700 2rem $font;
+        color: rgb(206, 157, 94);
+    }
+    p {
+        font: 500 1.5rem $font;
+        color: black;
+    }
+}
+
+
 .my-form {
     display: flex;
     flex-direction: column;
@@ -7,14 +23,12 @@
         padding: 6px;
         text-align: start;
         font-size: 1.4rem;
-        color: $clarito;
     }
     input {
-        width: 40%;
-        border: 1px solid $clarito;
+        width: 35em;
+        border: 1px solid #fff;
         border-radius: 5px;
         font-size: 1.4rem;
-        color: $violeta-oscuro;
     }
     button {
         @include btn;
@@ -23,13 +37,10 @@
         margin-top: 20px;
         font-weight: 700;
         font-size: 1.6rem;
-        box-shadow: 0px 0px 5px $clarito;
     }
-    
 }
 
 a {
     text-decoration: none;
     color: transparent;
 }
-

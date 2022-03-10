@@ -1,17 +1,11 @@
-
-import { Link } from 'react-router-dom'
-import ItemCount from '../../item-count/ItemCount'
-import { Carousel } from 'react-bootstrap'
-import { useContext, useState } from 'react'
-import { CartContext } from '../../../context/CartContext'
-
+import { Link } from 'react-router-dom';
+import ItemCount from '../../item-count/ItemCount';
+import { useContext, useState } from 'react';
+import { CartContext } from '../../../context/CartContext';
 
 const ItemDetail = ( {product}) => {
-
-    const { name, description, price, stock, brand, image, image2 } = product
-
+    const { name, description, price, stock, image } = product
     const [show, setShow] = useState(true)
-
     const { addItem } = useContext(CartContext)
 
     const onAdd = ( counter ) => {
@@ -19,37 +13,25 @@ const ItemDetail = ( {product}) => {
         setShow(false)
     }
 
-
     return (
         <div>
             <div className="detail-layout">
-                <Carousel fade className="carousel-size">
-                    <Carousel.Item>
-                        <img
-                        className="d-block"
-                        src={image}
-                        alt={name}
-                        />
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img
-                        className="d-block"
-                        src={image2}
-                        alt={name}
-                        />
-                    </Carousel.Item>
-                </Carousel>
+                <img
+                    src={image}
+                    width="400"
+                    height="auto"
+                    alt={name}
+                />
                 <div className="detail-info">
                     <h2>{name}</h2>
                     <p>{description}</p>
                     <h3>$ {price}</h3>
-                    <p>{brand}</p>
-                    <p>{stock} unidades disponibles</p>
+                    <p>{stock} en stock</p>
                     {stock > 0 ?
                     show ? <ItemCount stock={stock} onAdd={onAdd} /> : 
                         <div className="detail-btns">
-                            <Link to='/cart'><button>Finalizar compra</button></Link>
-                            <Link to='/'><button>Seguir Comprando</button></Link>
+                            <Link to='/'><button className="btn-detail">Continuar Comprando</button></Link>
+                            <Link to='/cart'><button className="btn-detail">Terminar de comprar</button></Link>
                         </div> : 
                     <p>Sin stock</p> }
                 </div>
@@ -58,4 +40,4 @@ const ItemDetail = ( {product}) => {
     )
 }
 
-export default ItemDetail
+export default ItemDetail;

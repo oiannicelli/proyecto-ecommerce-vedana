@@ -1,14 +1,40 @@
 ul {
     list-style-type: none;
+    li {
+        color: black;
+    }
 }
 
 .cart-items {
+    color: rgb(206, 157, 94);
+    font-size: 1.5rem;
+    font: 400 2.5rem $font;
+    h3 {
+        color: rgb(206, 157, 94);
+    }
     button {
     @include btn;
-    font-size: 1.5rem;
-    font-weight: 500;
-    background-color: $lila;
-    box-shadow: 2px 3px 3px $clarito;
+    font-size: 1.75rem;
+    font-weight: 300;
+    background-color: black;
     margin: 10px 5px;
+    }
+    .btn-cart {
+        background-color: black;
+        &:hover {
+            background-color: rgb(206, 157, 94);
+        }
+    }
+    .btn-delete {
+        background-color: black;
+        &:hover {
+            background-color: rgb(202, 58, 58);
+        }
+    }
+    .btn-buy {
+        background-color: black;
+        &:hover {
+            background-color: rgb(107, 185, 62);
+        }
     }
 }

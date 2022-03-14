@@ -1,24 +1,20 @@
 # Proyecto 'Vedana e-commerce'
 
-Este proyecto es un e-commerce realizado con React [Create React App](https://github.com/facebook/create-react-app), para el emprendimiento Vedana donde comercializan sus productos disponibles en papercut (el cliente puede saber la disponibilidad de los mismos y buscar un producto por su categoria).
+Este proyecto es un e-commerce realizado con [Create React App](https://github.com/facebook/create-react-app), para el emprendimiento Vedana donde comercializan sus productos disponibles en papercut (el cliente puede saber la disponibilidad de los mismos y buscar un producto por su categoria).
 
 ## Muestra del proyecto - Gif con recorridos de compra:
 
-[a link](https://drive.google.com/file/d/1Z5Is2DnM69xRJng8UUfRNJAywllzJDye/view?usp=sharing)
+[Vedana Tienda online](https://drive.google.com/file/d/1Z5Is2DnM69xRJng8UUfRNJAywllzJDye/view?usp=sharing)
 
-////////////////////////////////////////
 ## External dependency
-#### React Icons
-
+#### `React Icons`
 npm install react-icons
-#### Bootstrap
-
+#### `Bootstrap`
 npm install react-bootstrap
 
-#### Firebase
+#### `Firebase`
 npm install firebase@7.2.3 --save
 
-////////////////////////////////////////
 ### Available Scripts
 
 In the project directory, you can run:

@@ -15,7 +15,7 @@ npm install react-bootstrap
 #### `Firebase`
 npm install firebase@7.2.3 --save
 
-### Available Scripts
+## Available Scripts
 
 In the project directory, you can run:
 

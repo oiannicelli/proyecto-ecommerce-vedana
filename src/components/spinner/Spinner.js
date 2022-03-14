@@ -6,6 +6,6 @@ const BSpinner = () => {
             <span className="visually-hidden">Cargando...</span>
         </Spinner>
     )
-}
+};
 
 export default BSpinner;

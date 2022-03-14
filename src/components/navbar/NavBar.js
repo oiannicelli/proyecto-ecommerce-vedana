@@ -1,7 +1,7 @@
 import { Container, Nav, Navbar} from "react-bootstrap";
 import { useContext } from "react";
 import logo from '../../assets/img/logo.svg';
-import CartWidget from "../cart-icon/CartWidget";
+import CartWidget from "../cart/cart-icon/CartWidget";
 import { Link, NavLink } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 

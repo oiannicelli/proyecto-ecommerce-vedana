@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AddToCart from '../cart-icon/AddToCart'
+import AddToCart from '../../cart/cart-icon/AddToCart';
 
 const ItemCounter = ({ stock, onAdd }) => {
     const [counter, setCounter] = useState(1);

@@ -1,22 +1,16 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes as Switch } from 'react-router-dom';
-import ItemListContainer from '../components/item-list-container/ItemListContainer';
+import ItemListContainer from '../components/item-container/item-list-container/ItemListContainer';
+import ItemDetailContainer from '../components/item-container/item-detail-container/ItemDetailContainer';
 import NavBar from '../components/navbar/NavBar';
-import ItemDetailContainer from '../components/item-detail-container/ItemDetailContainer';
-import NotFound from '../not-found/NotFound';
 import Cart from '../components/cart/Cart';
 import Form from '../components/form/Form';
-// import index from '../assets/img/index.jpg';
+import NotFound from '../components/not-found/NotFound';
 
 const Routes = () => {
     return (
         <BrowserRouter>
             <NavBar />
-            {/* <img
-                src={index}
-                width="auto"
-                height="743"
-            /> */}
             <Switch>
                 <Route path="/" element={<ItemListContainer />} />
                 <Route path="/category/:categoryId" element={<ItemListContainer />} />

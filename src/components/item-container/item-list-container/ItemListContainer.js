@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
-import BSpinner from "../spinner/Spinner";
-import ProductList from "./item-list/ItemList";
+import BSpinner from "../../spinner/Spinner";
+import ProductList from "../../item/item-list/ItemList";
 import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
 
 

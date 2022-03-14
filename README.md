@@ -6,8 +6,6 @@ Este proyecto es un e-commerce realizado con React [Create React App](https://gi
 
 [a link](https://drive.google.com/file/d/1Z5Is2DnM69xRJng8UUfRNJAywllzJDye/view?usp=sharing)
 
-Fuente: https://www.iteramos.com/pregunta/7094/enlace-relativo-a-github-en-el-archivo-markdown
-
 ////////////////////////////////////////
 ## External dependency
 #### React Icons
